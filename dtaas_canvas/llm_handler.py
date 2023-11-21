@@ -5,10 +5,9 @@ from langchain.prompts import HumanMessagePromptTemplate, ChatPromptTemplate
 
 
 class Giga:
-    def __init__(self, prompt, vector_store, sys_message):
+    def __init__(self, prompt, sys_message):
         self._llm = GigaChat(temperature=1e-15, verify_ssl_certs=False)
         self.prompt = prompt
-        self.vs = vector_store
         self.sys_message = sys_message
 
     def call(self, message):
