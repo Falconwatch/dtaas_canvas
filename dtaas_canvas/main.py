@@ -41,7 +41,7 @@ class DtaasHelper:
         # Инициализируем бота
         self.bot = telebot.TeleBot(BOT_TOKEN)
         # Инициализируем гигачат
-        self.llmh = Giga(self.prompt, self.vs, self.sys_message)
+        self.llmh = Giga(self.prompt, self.sys_message)
 
         self.db = DBManager(self.db_path)
 
