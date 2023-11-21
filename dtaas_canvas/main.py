@@ -40,9 +40,6 @@ class DtaasHelper:
         self.sys_message = config['DEFAULT']['sys_message']
         # Инициализируем бота
         self.bot = telebot.TeleBot(BOT_TOKEN)
-        # Инициализируем и загружаем векторную базу данных
-        with VecBaseManager(self.path_to_data, self.path_to_vectorized_db) as vbm:
-            self.vs = vbm.load_base()
         # Инициализируем гигачат
         self.llmh = Giga(self.prompt, self.vs, self.sys_message)
 
