@@ -64,9 +64,12 @@ class DtaasHelper:
             response = self.error_response
             try:
                 response = self.llmh.call(message.text)
+                self.bot.reply_to(message, response[0], reply_markup=gen_markup())
+                self.bot.reply_to(message, response[1], reply_markup=gen_markup())
+                self.bot.reply_to(message, response[2], reply_markup=gen_markup())
             except Exception as e:
                 logging.error("Can not get a response from LLM" + str(e))
-            self.bot.reply_to(message, response, reply_markup=gen_markup())
+                self.bot.reply_to(message, response, reply_markup=gen_markup())
             #self.db.log_message(message, response)
 
         @self.bot.callback_query_handler(func=lambda call: True)
